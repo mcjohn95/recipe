@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="container">
+	<h1>List of all users</h1>
+
+	<table class="table table-bordered">
+		<thead>
+		<tr class="info">
+		
+<p>
+  <strong>typeOfUser:</strong>
+  <%= @user.typeOfUser%>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag(@user.image,:size=>"80x50")%>
+</p>
+
+<p>
+  <strong>Userbio:</strong>
+  <%= @user.userBio %>
+</p>
+
+
+
+<p>
+  <strong>Nameofuser:</strong>
+  <%= @user.nameOfUser %>
+</p>
+
+<p>
+  <strong>Emailaddress:</strong>
+  <%= @user.emailAddress %>
+</p>
+
+<p>
+  <strong>Password digest:</strong>
+  <%= @user.password_digest %>
+</p>
+
+<p>
+  <strong>Password digest:</strong>
+  <%= @user.password_digest %>
+</p>
+<p>
+  <strong>Password Confirmation:</strong>
+  <%= @user.password_confirmation %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

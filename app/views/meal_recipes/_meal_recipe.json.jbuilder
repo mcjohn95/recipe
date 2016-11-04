@@ -1,0 +1,2 @@
+json.extract! meal_recipe, :id, :mealType, :image, :instructions, :user_id, :dateOfUpload, :recipeName, :servingQuantity, :difficultyLevel, :created_at, :updated_at
+json.url meal_recipe_url(meal_recipe, format: :json)

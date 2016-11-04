@@ -1,0 +1,1 @@
+json.array! @special_recipes, partial: 'special_recipes/special_recipe', as: :special_recipe

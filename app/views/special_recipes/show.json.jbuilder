@@ -1,0 +1,1 @@
+json.partial! "special_recipes/special_recipe", special_recipe: @special_recipe

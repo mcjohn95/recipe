@@ -1,0 +1,42 @@
+<div class="container">
+<head>
+  <title>List of all Recipes</title>
+</head>
+
+<table class="table table-bordered">
+  <thead>
+    <tr class="info">
+      <th>Mealtype</th>
+      <th>Image</th>
+      
+      <th>Uploaded by</th>
+      <th>Date of upload</th>
+      <th>Recipe Name</th>
+      <th>Serving Quantity</th>
+      <th>Difficulty </th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @meal_recipes.each do |meal_recipe| %>
+      <tr>
+        <td><%= meal_recipe.mealType %></td>
+       <td><%= image_tag(meal_recipe.image,:size=>"80x50")%></td>
+        
+        <td><%= meal_recipe.user.nameOfUser %></td>
+        <td><%= meal_recipe.dateOfUpload %></td>
+        <td><%= meal_recipe.recipeName %></td>
+        <td><%= meal_recipe.servingQuantity %></td>
+        <td><%= meal_recipe.difficultyLevel %></td>
+        <td><%= link_to 'View', meal_recipe %></td>
+        <td><%= link_to 'Edit', edit_meal_recipe_path(meal_recipe) %></td>
+        <td><%= link_to 'Destroy', meal_recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<strong><%= link_to 'New Meal recipe', new_meal_recipe_path %></strong>

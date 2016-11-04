@@ -1,0 +1,20 @@
+<h1>Log in</h1>
+<%=form_tag do %>
+	<table>
+	<tr> 
+		<td><%=label_tag :emailAddress %></td> 
+		<td><%=text_field_tag :emailAddress %> 
+	</tr> 
+	
+	<tr> 
+		<td><%=label_tag :password %></td> 
+		<td><%=text_field_tag :password%> 
+	</tr> 
+	
+	<tr> 
+		<td><%=submit_tag "Log in" %></td> 
+	</tr> 
+	
+	</table> 
+<% end %> 
+

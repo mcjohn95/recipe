@@ -1,0 +1,2 @@
+module SpecialRecipesHelper
+end

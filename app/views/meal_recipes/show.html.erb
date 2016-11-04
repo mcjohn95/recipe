@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type</strong>
+  <%= @meal_recipe.mealType %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag(@meal_recipe.image,:size=>"80x50")%>
+</p>
+
+<p>
+  <strong>Instructions:</strong>
+  <%= @meal_recipe.instructions %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @meal_recipe.user.nameOfUser %>
+</p>
+
+<p>
+  <strong>Dateofupload:</strong>
+  <%= @meal_recipe.dateOfUpload %>
+</p>
+
+<p>
+  <strong>Recipename:</strong>
+  <%= @meal_recipe.recipeName %>
+</p>
+
+<p>
+  <strong>Servingquantity:</strong>
+  <%= @meal_recipe.servingQuantity %>
+</p>
+
+<p>
+  <strong>Difficultylevel:</strong>
+  <%= @meal_recipe.difficultyLevel %>
+</p>
+
+<h2>Star Rating and Review:</h2>
+	<%=form_for([@meal_recipe, Review.new]) do |f| %>
+	
+<h3><%= f.label :stars %> 
+	<%stars = [1,2,3,4,5] %> 
+	<%stars.each do |star| %>
+		<%= f.radio_button :stars, star %> <% star %> 
+	<% end %> 
+</h3><br> 
+<%= f.text_area :content, :rows => 4, :cols => 40 %> 
+<div class="actions">
+	<%= f.submit "Please leave a Review"%> 
+</div> 
+<% end %> 
+
+<% if @meal_recipe.reviews.empty? %> 
+	<h3>You are the first to publish a review</h3> 
+<% else %> 
+	<h2>What others felt about this Recipe:</h2> 
+	<% @meal_recipe.reviews.reverse.each do |review| %> 
+		<p><%= review.content %>
+		Posted <%= time_ago_in_words(review.created_at) %> ago by
+		<%=review.user.nameOfUser %></p>
+	<% end %> 
+	<h3>Average Rating</h3>
+	<p>
+		<%= number_with_precision( @meal_recipe.average_stars, precision: 0) %> 
+	</p>
+<% end %>
+
+<%= link_to 'Edit', edit_meal_recipe_path(@meal_recipe) %> |
+<%= link_to 'Back', meal_recipes_path %>
